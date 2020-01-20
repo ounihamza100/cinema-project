@@ -1,4 +1,4 @@
-package io.hamzaouni.cinema.dao;
+package io.hamzaouni.cinema.dao.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

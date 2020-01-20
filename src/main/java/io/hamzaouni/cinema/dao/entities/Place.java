@@ -1,4 +1,4 @@
-package io.hamzaouni.cinema.dao;
+package io.hamzaouni.cinema.dao.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +8,6 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
 
 /**
  * @author Hamza Ouni
@@ -18,20 +17,14 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Projection implements Serializable {
+public class Place implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date dateProjection;
-    private double prix;
-    @ManyToOne
-    private Film film;
+    private int numero;
+    private double longitde,latitude,altitude;
     @ManyToOne
     private Salle salle;
-    @OneToMany(mappedBy = "projection")
+    @OneToMany(mappedBy = "place")
     private Collection<Ticket> tickets;
-    @ManyToOne
-    private Seance seance;
-
-
 }

@@ -1,4 +1,4 @@
-package io.hamzaouni.cinema.dao;
+package io.hamzaouni.cinema.dao.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,14 +17,12 @@ import java.util.Collection;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Place implements Serializable {
+public class Ville implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int numero;
-    private double longitde,latitude,altitude;
-    @ManyToOne
-    private Salle salle;
-    @OneToMany(mappedBy = "place")
-    private Collection<Ticket> tickets;
+    private String name;
+    private double longitude,latitude,altitude;
+    @OneToMany(mappedBy = "ville")
+    private Collection<Cinema> cinemas;
 }
